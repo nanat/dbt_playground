@@ -51,3 +51,16 @@ models:
         tests:
           - accepted_values:
               values: ['BUILDING', 'AUTOMOBILE', 'MACHINERY', 'HOUSEHOLD', 'FURNITURE']
+
+sources:
+  - name: snowflake_sample
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+      - name: customer
+        columns:
+          - name: c_custkey
+            tests:
+              - unique
+              - not_null
+      - name: orders
