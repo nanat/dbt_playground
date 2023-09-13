@@ -44,6 +44,7 @@ models:
       +materialized: table
       pre-hook:
         - "insert into dbt.audit (model, state, time) values ('{{this.name}}', 'starting model deployment', current_timestamp)"
+#      tags: "nightly" (this can be put at model level too)
 
 vars:
   my_first_variable: True

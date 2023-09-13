@@ -8,7 +8,7 @@
 */
 
 --{{ config(materialized='table', alias='first_model', post_hook='grant select on {{this}} to role analyst') }}
-{{ config(materialized='table', alias='first_model') }}
+{{ config(materialized='table', alias='first_model', tags=["nightly", "example"]) }}
 
 with source_data as (
     select 1 as id, 'NJ' as state, '2020-02-01 00:01:00.000'::TIMESTAMP as updated_at
